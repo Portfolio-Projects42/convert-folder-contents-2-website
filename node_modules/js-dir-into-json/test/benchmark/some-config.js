@@ -1,0 +1,6 @@
+module.exports = {
+  plugins: [
+    "plugin-1",
+    "plugin-2"
+  ]
+}
