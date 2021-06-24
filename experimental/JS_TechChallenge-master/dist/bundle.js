@@ -15411,15 +15411,13 @@
           if (num_pieces === 2) {
             return true;
           } else if (
-
-          /* k vs. kn .... or .... k vs. kb */
+            /* k vs. kn .... or .... k vs. kb */
             num_pieces === 3 &&
             (pieces[BISHOP] === 1 || pieces[KNIGHT] === 1)
           ) {
             return true;
           } else if (num_pieces === pieces[BISHOP] + 2) {
-
-          /* kb vs. kb where any number of bishops are all on the same color */
+            /* kb vs. kb where any number of bishops are all on the same color */
             var sum = 0;
             var len = bishops.length;
             for (var i = 0; i < len; i++) {
@@ -15670,12 +15668,12 @@
             if (same_rank > 0 && same_file > 0) {
               return algebraic(from);
             } else if (same_file > 0) {
-            /* if the moving piece rests on the same file, use the rank symbol as the
-             * disambiguator
-             */
+              /* if the moving piece rests on the same file, use the rank symbol as the
+               * disambiguator
+               */
               return algebraic(from).charAt(1);
             } else {
-            /* else use the file symbol */
+              /* else use the file symbol */
               return algebraic(from).charAt(0);
             }
           }
