@@ -13,7 +13,6 @@ I immediately thought of [dystic](https://github.com/oxalorg/dystic), my persona
 I immediately thought of [pandoc](https://pandoc.org/).
 
     pandoc --toc --from markdown --to html my-note.md -o my-note.html
-    
 
 Done. Easy, wasn’t it?
 
@@ -27,19 +26,18 @@ What ~better~ faster way than to use GNU Make for `mtime` based builds.
     MARKDOWN=$(shell find . -iname "*.md")
     # Form all 'html' counterparts
     HTML=$(MARKDOWN:.md=.html)
-    
+
     .PHONY = all tar clean
     all: $(HTML)
-    
+
     %.html: %.md
         pandoc --from markdown --to html $< -o $@
-    
+
     tar: $(MARKDOWN)
         tar --exclude=notes.tar.gz --exclude=.git/ -czvf notes.tar.gz ./
-    
+
     clean:
         rm $(HTML)
-    
 
 We’re almost done. Now just run `make all` in `/notes` and all your _markdown_ files will be built into _html_ files.
 
@@ -47,19 +45,17 @@ Run `make clean` to remove all the html files and run `make tar` to backup all y
 
 Simply open your browser and type “/notes” (or your complete path) into the address bar and voila! It’s not pretty but it works. (PS: use `file:///path/to/folder` if not using chrome)
 
-* * *
+---
 
 To make your files more pretty use my minimal css theme [sakura](https://github.com/oxalorg/sakura) and then change the pandoc command as follows:
 
     cd /notes
     wget "https://raw.githubusercontent.com/oxalorg/sakura/master/sakura.css"
     pandoc --css /notes/sakura.css --from markdown --to html $< -o $@
-    
 
 Now you can remote sync the entire website easily using rsync:
 
     rsync --exclude '*.md' source/ destination/
-    
 
 That’s the basics. This can easily be used to create your own blog, websites, small projects, pretty much anything. The best part being that it needs no ‘rules’ from your end, you’re free to structure your content anyway you like; something which is missing from almost every static site generator out there. This is one of my quibbles which I’m trying to fix with [dystic](https://github.com/oxalorg/dystic).
 
@@ -67,9 +63,6 @@ I added a couple more feature including making automatic indexes, sorting using 
 
 Let me know your comments below.
 
-  
-
-* * *
-
+---
 
 [Source](https://computableverse.com/blog/create-website-using-pandoc-make-file)
