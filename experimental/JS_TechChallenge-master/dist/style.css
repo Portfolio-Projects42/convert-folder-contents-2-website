@@ -1,0 +1,46 @@
+.block {
+  width: 600px;
+  position: relative;
+}
+
+.block .nonce {
+  position: relative;
+}
+
+.block .nonce .actions {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.block-container:not(:last-child) .block .actions {
+  display: none;
+}
+
+.block-container:not(:first-child)::before {
+  content: "↓   ↓   ↓   ↓   ↓   ↓   ↓   ↓   ↓   ↓   ↓";
+  font-size: 30px;
+  margin-left: 30px;
+}
+
+.valid-block {
+  background-color: lightseagreen;
+}
+
+.invalid-block {
+  background-color: lightpink;
+}
+
+.invalid-block::before {
+  content: "Invalid Block";
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  color: rgb(147, 46, 102);
+  font-weight: bolder;
+  font-size: 11px;
+}
+
+#new-block-button {
+  margin-top: 20px;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chess Blockchain</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css">
+    <link rel="stylesheet" href="lib/chessboard/css/chessboard-0.3.0.min.css" >
+    <link rel="stylesheet" href="style.css" >
+    <script
+    src="https://code.jquery.com/jquery-1.12.4.min.js"
+    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+    crossorigin="anonymous"></script>
+    <script src="lib/chessboard/js/chessboard-0.3.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Chess Blockchain</h1><br>
+        <div class="columns">
+            <div class="column is-narrow">
+                <h2>ChessBoard<h2>
+                <div id="board" style="width: 400px"></div>
+                <br>
+                <p>Status: <span id="game-status"></span></p>
+                <br>
+                <button id="serialize-button" class="button is-primary">Serialize</button>
+                <textarea id="serialize-textarea" class="input is-textarea" rows="5" col="8" placeholder="Serialized Chain Data"></textarea>
+                <br><br>
+                <button id="verify-button" class="button is-success">Verify Blockchain</button>
+                <textarea id="verify-textarea" class="input is-textarea" placeholder="Verification Result"></textarea>
+            </div>
+            <div class="column">
+                <h2>Block Chain (Zeros validation: 3) </h2>
+                <div id="blockchain"></div>
+                <button disabled id="new-block-button" class="button is-large is-success">New Block</button>
+            </div>
+            
+        </div>
+    </div>
+    <script src="bundle.js"></script>    
+</body>
+</html>
